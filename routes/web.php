@@ -24,4 +24,10 @@ Route::post('products', [ProductController::class, 'store'])->name('products.sto
 Route::get('products/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('products/{id}/editSave', [ProductController::class, 'editSave'])->name('products.editSave');
 
+
+
+//DRAGGABLE STUFF
+use App\Http\Controllers\DragController;
+Route::get('drag', [DragController::class, 'index'])->name('draggable.drag');
+
 ?>
