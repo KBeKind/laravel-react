@@ -7,9 +7,13 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
+//import '../css/styles.css';
+
 import "./bootstrap";
 
 import "./components/Test";
 import "./components/Example";
 import "./components/products/ProductsComponent";
 import "./components/products/ProductComponent";
+
+import "./components/draggable/DragDropComponent";
