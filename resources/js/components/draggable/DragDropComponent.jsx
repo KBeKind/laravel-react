@@ -144,75 +144,27 @@ const DragDropComponent = () => {
         );
     };
 
-    // const onDragEnd = (result) => {
-    //     const { source, destination } = result;
-
-    //     if (!destination) return;
-
-    //     const sourceSections = source.droppableId.startsWith("main-")
-    //         ? Array.from(mainAreaSections)
-    //         : Array.from(sidebarSections);
-    //     const destSections = destination.droppableId.startsWith("main-")
-    //         ? Array.from(mainAreaSections)
-    //         : Array.from(sidebarSections);
-
-    //     const sourceSectionIndex = sourceSections.findIndex(
-    //         (section) => section.id === source.droppableId
-    //     );
-    //     const destSectionIndex = destSections.findIndex(
-    //         (section) => section.id === destination.droppableId
-    //     );
-
-    //     if (sourceSectionIndex === -1 || destSectionIndex === -1) return;
-
-    //     const [movedItem] = sourceSections[sourceSectionIndex].items.splice(
-    //         source.index,
-    //         1
-    //     );
-
-    //     let replacedItem = null;
-    //     if (destination.droppableId.startsWith("main-")) {
-    //         if (destSections[destSectionIndex].items.length > 0) {
-    //             replacedItem = destSections[destSectionIndex].items.splice(
-    //                 0,
-    //                 1
-    //             )[0];
-    //         }
-    //     }
-
-    //     destSections[destSectionIndex].items.splice(
-    //         destination.index,
-    //         0,
-    //         movedItem
-    //     );
-
-    //     setMainAreaSections((mainAreaSections) =>
-    //         destination.droppableId.startsWith("main-")
-    //             ? destSections
-    //             : sourceSections
-    //     );
-
-    //     // Update the sidebar sections based on the items in the main area
-    //     setSidebarSections(filterSidebarSections(destSections));
-    // };
-
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-2">
-                        <DragDropSidebarComponent sections={sidebarSections} />
-                    </div>
-                    <div className="col-md-6">
-                        <div className="circular-container">
-                            <DragDropAreaComponent
-                                sections={mainAreaSections}
+        <div>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-4">
+                            <DragDropSidebarComponent
+                                sections={sidebarSections}
                             />
+                        </div>
+                        <div className="col-md-6">
+                            <div className="circular-container">
+                                <DragDropAreaComponent
+                                    sections={mainAreaSections}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </DragDropContext>
+            </DragDropContext>
+        </div>
     );
 };
 

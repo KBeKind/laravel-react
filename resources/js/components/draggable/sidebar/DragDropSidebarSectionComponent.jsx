@@ -4,9 +4,13 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const DragDropSidebarSectionComponent = ({ sectionId, title, items }) => {
     return (
-        <div className="bg-secondary p-2">
-            <h5>{title}</h5>
-            <Droppable droppableId={sectionId} type={items[0].type}>
+        <div className="bg-secondary p-2 text-center dragDropSidebarSection">
+            <h6>{title}</h6>
+            <Droppable
+                droppableId={sectionId}
+                type={items[0].type}
+                isDropDisabled={true}
+            >
                 {(provided) => (
                     <div {...provided.droppableProps} ref={provided.innerRef}>
                         {items.map((item, index) => (
